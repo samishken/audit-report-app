@@ -25,30 +25,30 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Show current directory before renaming
-        working-directory: tf-src/env/dev/
+        working-directory: tf-src/envs/dev/
         run: |
           - pwd 
           - ls -ltr
 
       - name: Terraform Init
-        working-directory: tf-src/env/dev/
+        working-directory: tf-src/envs/dev/
         run: |
           terraform init \
             -backend-config "bucket=terraform-state-dev-samboo" \
             -backend-config "key=dev/audit-report-app/terraform-audit-report-app.tfstate"
       
       - name: Terraform Format
-        working-directory: tf-src/env/dev/
+        working-directory: tf-src/envs/dev/
         run: terraform fmt
 
       - name: Terraform validate
         id: validate
-        working-directory: tf-src/env/dev/
+        working-directory: tf-src/envs/dev/
         run: terraform validate
 
       - name: Terraform plan
         id: plan
-        working-directory: tf-src/env/dev/
+        working-directory: tf-src/envs/dev/
         run: terraform plan -no-color -input=false -out planfile
         continue-on-error: true
 
@@ -58,5 +58,5 @@ jobs:
       
       - name: Terraform apply
         id: apply
-        working-directory: tf-src/env/dev/
+        working-directory: tf-src/envs/dev/
         run: terraform apply -auto-approve -input=false -parallelism=1 planfile  # build resources 1 at a time 
