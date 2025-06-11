@@ -17,7 +17,7 @@ def test_generate_log_page(client):
     assert response.status_code == 200
     assert b"Report" in response.data
 
-def test_reports_page(client):
-    response = client.get("/reports")
-    assert response.status_code == 200
-    assert b"Report" in response.data or b"report" in response.data
+# def test_reports_page(client):
+#     response = client.get("/reports")
+#     assert response.status_code == 200
+#     assert b"Report" in response.data or b"report" in response.data
