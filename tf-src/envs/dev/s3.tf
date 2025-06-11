@@ -1,6 +1,8 @@
 module "audit-report-app-bucket" {
-  source = "../../modules/s3"
+  source = "git::https://github.com/samishken/audit-report-app.git//tf-src/modules/s3"
+  # source = "../../modules/s3"
   bucket_name         = "${local.environment}-${local.project_name}-bucket"
+  versioning  = true
 
   tags = {
     Terraform   = "true"
