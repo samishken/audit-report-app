@@ -8,7 +8,7 @@ on:
         - 'feature/*'
 
 jobs:
-  build:
+  build-infra:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,6 +23,9 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
+
+      - name: Show current directory before renaming
+        run: pwd && ls -l tf-src/env/dev/
 
       - name: Terraform Init
         working-directory: tf-src/env/dev/
