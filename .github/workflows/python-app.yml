@@ -92,10 +92,12 @@ jobs:
               with:
                 name: Code-Coverage-Result
 
+            - name: Show current directory before renaming
+              run: pwd && ls -l app/
             - name: Rename coverage report
               run: |
                 ls -ltr
-                mv app/coverage.xml app/coverage-reports-${{ github.sha }} 
+                mv ./coverage.xml ./coverage-reports-${{ github.sha }} 
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
@@ -106,7 +108,7 @@ jobs:
 
             - name: Upload coverage report to S3
               run: |
-                aws s3 cp app/coverage-reports-${{ github.sha }} s3://dev-account-samboo/audit-app-coverage-report/coverage-reports-${{ github.sha }}
+                aws s3 cp ./coverage-reports-${{ github.sha }} s3://dev-account-samboo/audit-app-coverage-report/coverage-reports-${{ github.sha }}
 
     docker-deploy:
         runs-on: ubuntu-latest
