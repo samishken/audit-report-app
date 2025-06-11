@@ -23,10 +23,6 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        working-directory: tf-src/envs/dev/
-        run: |
-          - pwd 
-          - ls -ltr
 
       - name: Terraform Init
         working-directory: tf-src/envs/dev/
