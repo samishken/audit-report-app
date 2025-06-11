@@ -28,3 +28,4 @@ env/
 
 # Reports directory (optional, if you don't want to track generated reports)
 Reports/*
+appdata.db
