@@ -2,6 +2,10 @@ name: infra-audit-report-app
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+        - dev 
+        - 'feature/*'
 
 jobs:
   build:
@@ -46,7 +50,7 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
       
-    #   - name: Terraform apply
-    #     id: apply
-    #     working-directory: tf-src/env/dev/
-    #     run: terraform apply -auto-approve -input=false -parallelism=1 planfile  # build resources 1 at a time 
+      - name: Terraform apply
+        id: apply
+        working-directory: tf-src/env/dev/
+        run: terraform apply -auto-approve -input=false -parallelism=1 planfile  # build resources 1 at a time 
