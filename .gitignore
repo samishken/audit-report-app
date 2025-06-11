@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+env/
+
+# SQLite database
+*.db
+
+# Log files
+*.log
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+
+# Python egg files
+*.egg-info/
+.eggs/
+
+# Reports directory (optional, if you don't want to track generated reports)
+Reports/
