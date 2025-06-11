@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Reports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Generate Reports</h2>
+        <a href="/" class="home-btn">Home</a>
+        <div class="report-list">
+            <form method="post" action="/download-log">
+                <button type="submit">System Info Report</button>
+            </form>
+            <form method="post" action="/download-time-report">
+                <button type="submit">Time Report</button>
+            </form>
+        </div>
+        <div style="margin-top: 30px;">
+            <a href="/reports" class="cta-link">View Saved Reports</a>
+        </div>
+    </div>
+</body>
+</html>

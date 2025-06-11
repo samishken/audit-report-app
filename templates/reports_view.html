@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Reports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Generated Reports</h2>
+        {% if reports %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Filename</th>
+                <th>Created At</th>
+            </tr>
+            {% for report in reports %}
+            <tr>
+                <td>{{ report.id }}</td>
+                <td>{{ report.report_type }}</td>
+                <td>{{ report.filename }}</td>
+                <td>{{ report.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No reports found.</p>
+        {% endif %}
+        <a href="/" class="home-btn back-btn">Home</a>
+    </div>
+</body>
+</html>
