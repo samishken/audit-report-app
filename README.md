@@ -6,7 +6,6 @@ A simple Flask web application to generate, download, and view system and time r
 
 - Generate and download system info and time reports
 - View a list of all generated reports (stored in SQLite)
-- Modern UI with CSS styling
 - Dockerized for easy deployment
 
 ## Requirements
