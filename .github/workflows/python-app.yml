@@ -60,12 +60,12 @@ jobs:
                 file: ./coverage.xml
                 token: ${{ secrets.CODECOV_TOKEN }}
 
-            - name: Archive Test Result
+            - name: Archive Coverage Result
               uses: actions/upload-artifact@v4
               with:
                 name: Code-Coverage-Result
-                path: coverage
-                retention-days: 1
+                path: ./coverage.xml
+                retention-days: 3
 
     report-to-s3:
         name: Upload Code Coverage Report to S3
