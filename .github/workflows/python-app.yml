@@ -92,7 +92,7 @@ jobs:
               working-directory: app/
               run: |
                 ls -ltr
-                mv coverage.xml coverage-reports-${{ github.sha }} 
+                mv app/coverage.xml app/coverage-reports-${{ github.sha }} 
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
@@ -104,7 +104,7 @@ jobs:
             - name: Upload coverage report to S3
               working-directory: app/
               run: |
-                aws s3 cp ./coverage-reports-${{ github.sha }} s3://dev-account-samboo/audit-app-coverage-report/coverage-reports-${{ github.sha }}
+                aws s3 cp app/coverage-reports-${{ github.sha }} s3://dev-account-samboo/audit-app-coverage-report/coverage-reports-${{ github.sha }}
 
     docker-deploy:
         runs-on: ubuntu-latest
