@@ -73,6 +73,10 @@ jobs:
                 
                 retention-days: 3
 
+            - name: Show current directory after archiving
+              run: pwd && ls -l app/
+              
+
     report-to-s3:
         name: AWS S3 - Upload Coverage Reports
         runs-on: ubuntu-latest
