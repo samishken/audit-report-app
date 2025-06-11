@@ -10,6 +10,7 @@ on:
 
 jobs:
     unit-tests:
+        name: Unit Testing
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
@@ -28,9 +29,40 @@ jobs:
 
             - name: Run unit tests
               run: |
-                pytest        
+                pytest  
+    
+    code-coverage:
+        name: Code Coverage
+        runs-on: ubuntu-latest
+        needs: unit-tests
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.13'
+
+            - name: Install dependencies
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+                pip install pytest pytest-cov
+
+            - name: Run tests with coverage
+              run: |
+                pytest --cov=. --cov-report=xml
+
+            - name: Upload coverage to Codecov
+              uses: codecov/codecov-action@v4
+              with:
+                file: ./coverage.xml
+                token: ${{ secrets.CODECOV_TOKEN }}
+
     docker-deploy:
         runs-on: ubuntu-latest
+        needs: [unit-tests] 
         env:
             ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}  
             ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
