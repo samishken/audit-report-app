@@ -7,7 +7,7 @@ output "vpc_id" {
   value       = module.audit-report-app-vpc.vpc_id
 }
 
-output "s3_bucket_names" {
-  description = "List of S3 bucket names"
-  value       = [for b in module.audit-report-app-bucket : b.bucket_name]
-}
+# output "s3_bucket_names" {
+#   description = "List of S3 bucket names"
+#   value       = [for b in module.audit-report-app-bucket : b.bucket_name]
+# }
