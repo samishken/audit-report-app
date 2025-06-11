@@ -6,3 +6,8 @@ output "vpc_id" {
   description = "The ID of the VPC"
   value       = module.audit-report-app-vpc.vpc_id
 }
+
+output "s3_bucket_names" {
+  description = "List of S3 bucket names"
+  value       = [for b in module.audit-report-app-bucket : b.bucket_name]
+}
