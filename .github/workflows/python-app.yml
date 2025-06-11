@@ -89,7 +89,6 @@ jobs:
                 name: Code-Coverage-Result
 
             - name: Rename coverage report
-              working-directory: app/
               run: |
                 ls -ltr
                 mv app/coverage.xml app/coverage-reports-${{ github.sha }} 
@@ -102,7 +101,6 @@ jobs:
                 aws-region: us-east-1
 
             - name: Upload coverage report to S3
-              working-directory: app/
               run: |
                 aws s3 cp app/coverage-reports-${{ github.sha }} s3://dev-account-samboo/audit-app-coverage-report/coverage-reports-${{ github.sha }}
 
