@@ -1,0 +1,25 @@
+# Ignore version control directories
+.git/
+.gitignore
+
+# Ignore Terraform working directory
+.terraform/
+
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Ignore crash logs
+crash.log
+crash.*.log
+
+# Ignore backup files
+*.backup
+
+# Ignore sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Ignore editor/OS files
+*.swp
+*.DS_Store

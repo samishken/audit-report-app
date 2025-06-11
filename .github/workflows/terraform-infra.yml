@@ -2,10 +2,10 @@ name: infra-audit-report-app
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-        - dev 
-        - 'feature/*'
+#   push:
+#     branches:
+#         - dev 
+#         - 'feature/*'
 
 jobs:
   build-infra:
