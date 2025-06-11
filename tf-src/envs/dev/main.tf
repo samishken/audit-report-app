@@ -1,5 +1,5 @@
 locals {
-  project_name = "terraform-exam-prep"
+  project_name = "audit-report-app" # Change to your project name 
 }
 
 locals {
