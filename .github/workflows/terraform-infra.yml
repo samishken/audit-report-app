@@ -23,8 +23,6 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-
-      - name: Show current directory before renaming
         working-directory: tf-src/envs/dev/
         run: |
           - pwd 
