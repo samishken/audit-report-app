@@ -2,11 +2,11 @@ name: Audit_Report_App_CICD_Pipeline
 
 on:
     workflow_dispatch:
-    push:
-        branches:
-            - main
-            - dev 
-            - 'feature/*'
+    # push:
+    #     branches:
+    #         - main
+    #         - dev 
+    #         - 'feature/*'
 
 jobs:
     unit-tests:

@@ -12,4 +12,10 @@ output "s3_bucket_names" {
   value       = module.audit-report-app-bucket[*].bucket_name
 }
 
+output "all_vpc_module_outputs" {
+  value = module.audit-report-app-vpc
+}
 
+output "private_subnets" {
+  value = module.audit-report-app-vpc.private_subnets
+}
