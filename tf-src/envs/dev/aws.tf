@@ -26,7 +26,6 @@ resource "aws_instance" "my_server" {
   provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
   }
-
   # allows you to change what happens to resources e.g. create, update, destroy.
   lifecycle {
     prevent_destroy = false # true: prevents the instance from being destroyed.  This is useful for exam prep to avoid accidental deletions

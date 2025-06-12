@@ -30,3 +30,5 @@ variable "node_groups" {
     })
   }))
 }
+
+variable "tags" { type = map(string) }

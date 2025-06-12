@@ -1,11 +1,7 @@
-variable "repo_name" {
+variable "repository_name" {
   type        = string
-  default     = "home-lab-project-ecr"
+  default     = "audit-report-app-ecr"
   description = "ECR repo to store a Docker image"
 }
 
-variable "cluster_name" {
-  description = "Name of the ECR"
-  default     = "audit-report-app-ecr"
-  type        = string
-}
+variable "tags" { type = map(string) }

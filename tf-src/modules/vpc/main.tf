@@ -20,6 +20,3 @@ resource "aws_subnet" "private" {
   tags              = merge(var.tags, { "Type" = "private" })
 }
 
-output "vpc_id" {
-  value = aws_vpc.this.id
-}
