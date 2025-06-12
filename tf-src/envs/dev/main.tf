@@ -9,7 +9,3 @@ locals {
 locals {
   module_path = "${path.module}/../../modules/vpc"
 }
-
-output "resolved_path" {
-  value = local.module_path
-}

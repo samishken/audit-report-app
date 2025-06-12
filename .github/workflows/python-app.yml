@@ -108,7 +108,8 @@ jobs:
 
             - name: Upload coverage report to S3
               run: |
-                aws s3 cp ./coverage-reports-${{ github.sha }} s3://dev-account-samboo/audit-app-coverage-report/coverage-reports-${{ github.sha }}
+                aws s3 cp ./coverage-reports-${{ github.sha }} s3://dev-audit-report-app-6bda7f82/audit-app-coverage-report/coverage-reports-${{ github.sha }}
+                aws s3 cp ./coverage-reports-${{ github.sha }} s3://dev-audit-report-app-c29afdbb/audit-app-coverage-report/coverage-reports-${{ github.sha }}
 
     docker-deploy:
         runs-on: ubuntu-latest
